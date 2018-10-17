@@ -3,7 +3,7 @@ public class RationalNumber extends RealNumber
   private int numerator, denominator;
 
   public static void main(String[] args) {
-	System.out.println(gcd(63, 45));
+	gcd(63, 45);
   }
 
   /**Initialize the RationalNumber with the provided values
@@ -12,7 +12,7 @@ public class RationalNumber extends RealNumber
   *@param deno the denominator
   */
   public RationalNumber(int nume, int deno){
-    super(0.0);//this value is ignored! 
+    super(0.0);//this value is ignored!
   }
 
   public double getValue(){
@@ -59,17 +59,25 @@ public class RationalNumber extends RealNumber
   *@return the value of the GCD
   */
   private static int gcd(int a, int b){
-    int remainder = 1;
-    if (a % b != 0) {
-	remainder = a - b;
-    }
-    while (b % remainder != 0) {
-	a = b;
-	b = remainder;
-	remainder = a - b;
-    }   
+      int remainder = 1;
+      if (a % b != 0) {
+      remainder = a - b;
+      }
+      else {
+        return b;
+      }
 
-    return remainder;
+      System.out.println(remainder);
+
+      while (b % remainder != 0) {
+	       a = b;
+	       b = remainder;
+	       remainder = a - b;
+         System.out.println(a + " " + b + " " + remainder);
+      }
+
+      System.out.println(remainder);
+      return remainder;
   }
 
   /**
